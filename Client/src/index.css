@@ -18,6 +18,6 @@
       @apply w-20 h-20 rounded-xl border flex justify-center items-center;
    }
    .selected{
-      @apply w-20 h-20 flex justify-center items-center bg-blue-600;
+      @apply w-20 h-20 flex justify-center items-center bg-blue-400;
    }
 }
