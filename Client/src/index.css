@@ -14,10 +14,34 @@
 
 @layer base{
 
+   h1{
+      @apply text-5xl font-black opacity-75
+   }
+
+   .reset-button{
+      @apply border border-important px-5 m-4 text-important rounded-full shadow-sm shadow-important hover:shadow-none transition-shadow duration-300;
+   }
+
    .square{
-      @apply w-20 h-20 rounded-xl border flex justify-center items-center;
+      @apply w-20 h-20 rounded-xl border flex justify-center items-center hover:bg-[#00000005] hover:shadow-lg hover:scale-110 transition-all duration-200 cursor-pointer;
    }
    .selected{
       @apply w-20 h-20 flex justify-center items-center bg-blue-400;
    }
+
+   .indicator{
+      @apply flex gap-5 mt-5
+   }
+
+   .indicator *{
+      border-color: transparent;
+      box-shadow: none;
+   }
+
+   .indicator .square{
+      box-shadow: none;
+      transform: none;
+      pointer-events: none;
+   }
+
 }

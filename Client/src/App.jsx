@@ -17,7 +17,7 @@ const WINNERSCOMBOS = [
 ];
 
 const Square = ({ children, isSelected, updateBoard, index }) => {
-   const className = `square ${isSelected ? "selected" : ""}`;
+   const className = `square ${isSelected ? "selected" : ""} `;
 
    const handleClick = () => {
       updateBoard(index);
@@ -77,6 +77,8 @@ function App() {
       <div className="w-screen h-screen flex flex-col justify-center items-center select-none">
          <h1>TA-TE-TI</h1>
 
+         <button className="reset-button" onClick={handlerRestart}>reset</button>
+
          <section className="grid grid-cols-3 gap-3">
             {board.map((_, index) => (
                <Square key={index} index={index} updateBoard={updateBoard}>
@@ -89,7 +91,7 @@ function App() {
          para indicar que está siendo ignorado. El segundo parámetro ("index") representa
       el índice del elemento en el arreglo. */}
          </section>
-         <section className="flex">
+         <section className="indicator">
             <Square isSelected={turn === TURNS.X}>{TURNS.X}</Square>
             <Square isSelected={turn === TURNS.O}>{TURNS.O}</Square>
          </section>
@@ -97,11 +99,11 @@ function App() {
          {
             winner !== null && (
             <section className="absolute w-screen h-screen top-0 left-0 grid place-items-center bg-[#00000050]">
-               <div className="w-fit p-10 flex flex-col justify-center items-center gap-6 bg-slate-100 rounded-lg shadow-2xl">
+               <div className="w-1/2 h-1/2 p-10 flex flex-col justify-center items-center gap-6 bg-slate-100 rounded-lg shadow-2xl">
                   <h2 className="text-xl">
                      {winner === false ?
                      "empate" :
-                     "gano:" + `\n` + winner
+                     "gano:" + winner
                   }
                   </h2>
 
